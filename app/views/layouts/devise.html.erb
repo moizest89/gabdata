@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gabdata</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="master_container">
+	<%= render :partial => "header_page" %>
+	<%= render :partial=>"alert_devise"%>
+	<div class="center_layout_container">
+		<div class="container">
+			<div class="grid_11">
+			<%= yield %>
+			<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<%= render :partial => "footer_page" %>
+</div>
+</body>
+</html>
