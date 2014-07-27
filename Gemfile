@@ -6,7 +6,6 @@ gem 'rails', '4.1.1'
 # Use mysql as the database for Active Record
 gem 'mongoid'
 gem 'bson_ext'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -34,7 +33,7 @@ gem 'sunspot_mongoid2'
 group :development do
   gem 'sunspot_solr'
   #gem 'devise'
-  #gem 'mysql2'
+  gem 'mysql2'
 end
 
 # Use ActiveModel has_secure_password
