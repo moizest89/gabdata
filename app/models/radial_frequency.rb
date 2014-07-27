@@ -1,5 +1,6 @@
 class RadialFrequency
   include Mongoid::Document
+  include Sunspot::Mongoid2
 
   field :_id, type: String, default: ->{ name.to_s.parameterize }
   field :ab, type: String

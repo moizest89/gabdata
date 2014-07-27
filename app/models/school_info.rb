@@ -1,5 +1,6 @@
 class SchoolInfo
   include Mongoid::Document
+  include Sunspot::Mongoid2
 
   field :_id, type: String
   field :academic_grade_id, type: String

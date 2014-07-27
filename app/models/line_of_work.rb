@@ -1,5 +1,6 @@
 class LineOfWork
   include Mongoid::Document
+  include Sunspot::Mongoid2
 
   field :_id, type: String, default: ->{ name.to_s.parameterize }
   field :budget_unit_id, type: String

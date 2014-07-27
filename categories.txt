@@ -1,0 +1,82 @@
+Educacion
+	AcademicGrade
+	Carreer
+
+Economia y Finanzas
+	Accountant
+	Budget Unit
+	Company
+	CompanyPenalty
+	Cooperative
+	CooperativeFee
+	CooperativeFeePlace
+	CooperativeFeeContact
+	CooperativeFeePriceType
+	CooperativeFeeType
+	Finance
+	FinanceType
+
+Salud
+	Doctor
+	DoctorEspeciality
+
+Alimentacion
+	FoodEstablishment
+	FoodEstablishmentArea
+	FoodEstablishmentHealthCommunity
+	FoodEstablishmentType
+
+Consumo de Electricidad
+	ElectricityChargeType
+	ElectricityCompany
+	ElectricityDemandLevel
+	ElectricityPrice
+	ElectricityRateType
+
+Fode
+	FodesCitiesTransfer
+	FodesCitiesTransferInfo
+
+Otros
+	Category
+	City
+	CivilOrganization
+	CivilOrganizationType
+	DelationInfo
+	DelationInstitution
+	Delegation
+	DelegationInfo
+	DisabledAssociation
+	ExecutingWork
+	FovialCompany
+	HealthEstablishment
+	HydroDepartment
+	HydroEstablishment
+	HidroMunicipality
+	HydroPrice
+	HydroReference
+	HydroRoute
+	HydroZone
+	InformationOfficer
+	InformationStandard
+	InformationStandardCategory
+	InformationStandardFrame
+	InformationStandardInfo
+	Institution
+	InstitutionConsultant
+	InstitutionEvent
+	InstitutionEventParticipant
+	InstitutionInformationStandardsSetting
+	InstitutionOfficial
+	InstitutionOrganizationalStructure
+	InstitutionRemuneration
+	InstitutionService
+	InstitutionServiceCategory
+	InstitutionServiceStep
+	InstitutionTravel
+	InstitutionType
+	Lawyer
+	LineOfWork
+	
+
+

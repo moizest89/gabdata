@@ -1,5 +1,6 @@
 class ProductProbe
   include Mongoid::Document
+  include Sunspot::Mongoid2
 
   field :_id, type: String
   field :created_at, type: Date

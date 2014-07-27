@@ -1,5 +1,6 @@
 class ResourcesToPrivateRecipient
   include Mongoid::Document
+  include Sunspot::Mongoid2
 
   field :_id, type: String, default: ->{ name.to_s.parameterize }
   field :allocation_of_resources, type: String
