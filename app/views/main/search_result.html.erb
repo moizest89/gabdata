@@ -1,10 +1,10 @@
 <div id="result_items">
 	<div class="grid_6">
 		<h2 class="label">Transparencia:</h2>
-	
+			<%=@mongo_results%>
 	</div>
 	<div class="grid_6 omega">
-		<%=@mongo_results%>
+		
 	Web
 	<%= render :partial => "result" , :collection => @results %>
 		<h2 class="label">Web:</h2>
