@@ -6,8 +6,10 @@ class MainController < ApplicationController
   end
 
   def search_result
-  	render :layout => "search_result"
-  	@results = []
+  	#render :layout => "search_result"
+    
+  	@keywords_select = Keyword.all.to_a.map{|k| [k.label_for_select, k.keyword]}
+    @results = []
   	@error_message = ""
   	@response = ""
   	@parsed_response = ""
