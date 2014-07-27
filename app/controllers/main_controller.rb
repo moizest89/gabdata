@@ -5,7 +5,8 @@ class MainController < ApplicationController
   end
 
   def search_result
-  	
+  		
+  		
   end
 
 end
