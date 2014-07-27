@@ -1,6 +1,5 @@
 class SchoolInfo
   include Mongoid::Document
-  include Sunspot::Mongoid2
 
   field :_id, type: String
   field :academic_grade_id, type: String
@@ -12,9 +11,5 @@ class SchoolInfo
   field :turn, type: String
   field :updated_at, type: Date
   field :year, type: String
-  
-  searchable do
-    string :enrollment
-  end
 
 end
