@@ -43,12 +43,14 @@ class MainController < ApplicationController
   	@search_value = ""
   	@keyword = Keyword.where(keyword: params[:keyword]).first
   	@models = @keyword.get_models_classes
-  	Sunspot.search(@models) do
-  		
-  	end
+  	
   	logger.debug "START"
   	if params[:strato]
   		@search_value = params[:strato][:phrase]
+  		@search_mongo = Sunspot.search(@models) do
+	  		fulltext @search_value
+	  	end
+	  	@mongo_results = @search_mongo.results
   		logger.debug "SEARCH: #{@search_value}"
   		begin
 			  @url = "http://107.170.49.159:8983/solr/collection1/select?q=#{@search_value}&wt=json&indent=true&defType=edismax&stopwords=true&lowercaseOperators=true"
