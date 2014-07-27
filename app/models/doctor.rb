@@ -13,8 +13,6 @@ class Doctor
 
   searchable do
   	string :name
-  	integer :doctor_especiality_id
-  	integer :register_number
   end
 
 end
