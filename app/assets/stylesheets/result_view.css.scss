@@ -52,7 +52,12 @@ div#search_conatainer{
 		}
 	}/*div#header_search_result */
 	div#result_items{
-		padding: 20px 0;
+		padding: 20px 5px;
+		border:1px solid #BBBBBB;
+		border-top: none;
+		@include boxShadow(0px 0px 4px, #CCCCCC);
+		margin-bottom: 10px;
+		@include rounded(0 0 4px 4px);
 		div.result{
 			a{
 				font-size: 16px;
