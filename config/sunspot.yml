@@ -9,10 +9,10 @@ production:
 
 development:
   solr:
-    hostname: localhost
-    port: 8982
+  solr:
+    hostname: 107.170.49.159
+    port: 8983
     log_level: INFO
-    path: /solr/development
 
 test:
   solr:
@@ -20,4 +20,3 @@ test:
     port: 8981
     log_level: WARNING
     path: /solr/test
-    
