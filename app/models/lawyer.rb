@@ -1,5 +1,6 @@
 class Lawyer
   include Mongoid::Document
+  include Sunspot::Mongoid2
 
   field :_id, type: String
   field :name, type: String
