@@ -4,4 +4,8 @@ class MainController < ApplicationController
   	render :layout => "search"
   end
 
+  def search_result
+  	
+  end
+
 end
