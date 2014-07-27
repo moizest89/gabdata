@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gabdata</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div id="search_container">
+		<div class="image_view"></div>
+
+		<div class="search_view">
+			<div id="header_search">
+				<%= render :partial => "user_options"%>
+				<div class="clear"></div>
+			</div>
+			<%= render :partial=>"alert_devise"%>
+			<div class="container">
+				<%= yield %>
+			</div>
+			<div class="clear"></div>
+			<div id="footer_page">
+				<span class="power_by">Powered by <a href="www.elev.it"><%= image_tag "logo.png" %></a></span>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

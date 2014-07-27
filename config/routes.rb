@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
+
+  devise_for :views
+  devise_for :users
+  get 'main/index'
+
+  #get 'main/search_result' , as: :result
+  match "/result" => "main#search_result", :via => :get
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+
+  root 'main#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

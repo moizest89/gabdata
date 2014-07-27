@@ -1,0 +1,19 @@
+<div class="devise_item forgot">
+<%= image_tag "gobLogo.png", :class => "logo_page" %>
+<h2 class="title">¿Olvidaste tu contraseña?</h2>
+
+<div class="form_container">
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %>
+  <%= f.email_field :email, autofocus: true %></div>
+  <br/>
+  <div><%= f.submit "Send me reset password instructions" %></div>
+<% end %>
+</div>
+
+<div class="other">
+	<%= render "devise/shared/links" %>
+</div>
+</div>
