@@ -12,7 +12,9 @@ development:
     hostname: localhost
     port: 8982
     log_level: INFO
-    path: /solr/development
+    path: /solr/default
+    solr_home: solr
+  auto_commit_after_request: false
 
 test:
   solr:
