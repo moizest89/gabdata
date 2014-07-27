@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html class="search">
 <head>
   <title>Gabdata</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="search">
 <div id="search_conatainer">
-	
-	<%= yield %>
-
-	
+	<%= render :partial => "header_search_result" %>
+	<div class="container">
+		<%= yield %>
+	</div>
+	<%= render :partial => "footer_page" %>
 </div>
 </body>
 </html>

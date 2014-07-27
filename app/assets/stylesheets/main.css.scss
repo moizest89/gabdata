@@ -100,6 +100,63 @@ div#header_page{
 }
 //Search View
 
+div#search_form_item{
+	position: relative;
+	form{
+		width: 100%;
+		position: relative;
+		input[type="text"]{
+			width: 100%;
+			padding: 10px 0;
+			font-size: 16px;
+			@include rounded(4px);
+			text-indent: 10px;
+			@include boxShadow(0px 0px 0px);
+		}
+		input[type="submit"]{
+			background-image: image-url("search_symbol.png");
+			background-color:#dddddd;
+			background-repeat:no-repeat;
+			background-position:center center;
+			border:none;
+			padding:12.7px 25px;
+			cursor:pointer;
+			position:absolute;
+			top:1px;
+			right:-3px;
+			outline:none;
+			border-left: 1px solid #ACACAC;
+			@include rounded(0 3px 3px 0);
+			@include animation();
+		}
+		input[type="text"]:focus ~ input[type="submit"]{
+			border-left: 1px solid #2D7EDB;
+		}
+	}
+}
+div#search_form{
+		background: #29AAE3;
+		margin-top: 200px;
+		@include rounded(5px);
+		@include boxShadow();
+		div.container{
+			padding: 20px 0;
+		}
+		img.logo{
+			margin: 0 auto;
+			text-align: center;
+			display: block;
+		}
+		span.use_text{
+			font-size: 18px;
+			color:#FFFFFF;
+			font-weight: bold;
+			padding: 30px 0 10px 0;
+			display: block;
+			@include textShadow(1px 1px 1px, #888888);
+		}
+		
+	}//
 div#search_container{
 	width: 100%;
 	height: 100%;
@@ -202,7 +259,7 @@ div#search_container{
 		}	
 	}
 	div.image_view{
-		background-image: image-url("background2.jpg");
+		background-image: image-url("background3.jpg");
 		background-size: cover;
 		background-repeat:no-repeat;
 		background-position:center center;
@@ -219,59 +276,7 @@ div#search_container{
 		z-index:0;
 		position: relative;
 		
-		div#search_form{
-			background: #29AAE3;
-			margin-top: 200px;
-			@include rounded(5px);
-			@include boxShadow();
-			div.container{
-				padding: 20px 0;
-			}
-			img.logo{
-				margin: 0 auto;
-				text-align: center;
-				display: block;
-			}
-			span.use_text{
-				font-size: 14px;
-				color:#FFFFFF;
-				font-weight: bold;
-				padding: 30px 0 20px 0;
-				display: block;
-				@include textShadow(1px 1px 1px, #666666);
-			}
-			form{
-				width: 100%;
-				position: relative;
-				input[type="text"]{
-					width: 100%;
-					padding: 10px 0;
-					font-size: 16px;
-					@include rounded(4px);
-					text-indent: 10px;
-					@include boxShadow(0px 0px 0px);
-				}
-				input[type="submit"]{
-					background-image: image-url("search_symbol.png");
-					background-color:#dddddd;
-					background-repeat:no-repeat;
-					background-position:center center;
-					border:none;
-					padding:12.7px 25px;
-					cursor:pointer;
-					position:absolute;
-					top:1px;
-					right:-3px;
-					outline:none;
-					border-left: 1px solid #ACACAC;
-					@include rounded(0 3px 3px 0);
-					@include animation();
-				}
-				input[type="text"]:focus ~ input[type="submit"]{
-					border-left: 1px solid #2D7EDB;
-				}
-			}
-		}//
+		
 		div#frequently_questions{
 			background: #29AAE3;
 			margin-top: 70px;
@@ -338,7 +343,8 @@ div.alert.alert-success{
 
 //devise
 
-div#master_container{
+div#master_container,
+div#search_conatainer{
 	width: 100%;
 	height: 100%;
 	div.center_layout_container{
