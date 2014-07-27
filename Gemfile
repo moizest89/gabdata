@@ -34,7 +34,7 @@ gem 'sunspot_mongoid2'
 group :development do
   gem 'sunspot_solr'
   #gem 'devise'
-  #gem 'mysql2'
+  gem 'mysql2'
 end
 
 # Use ActiveModel has_secure_password
