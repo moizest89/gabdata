@@ -26,6 +26,7 @@ class MainController < ApplicationController
 			rescue => error
 				@error_message = "Your search didn't get any result"
 			end
+      
 			render "search_result", :layout => "search_result"
 		else
 			render :layout => "search"
