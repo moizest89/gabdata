@@ -3,7 +3,7 @@ class MainController < ApplicationController
   def index
   	#@keywords_select = Keyword.all.to_a.map{|k| [k.label_for_select, k.keyword]}
   	#render :layout => "search"
-    
+
     @results = []
     @error_message = ""
     @response = ""
@@ -11,12 +11,14 @@ class MainController < ApplicationController
     @url = ""
     @search_value = ""
     
-    @keyword = Keyword.where(keyword: params[:keyword]).first
     @keywords_select = Keyword.all.to_a.map{|k| [k.label_for_select, k.keyword]}
-    @models = @keyword.get_models_classes
+    
     
     logger.debug "START"
     if params[:strato]
+      @keyword = Keyword.where(keyword: params[:keyword]).first
+      @models = @keyword.get_models_classes
+
       @search_value = params[:strato][:phrase]
       search_data = @search_value.split(" ").join("+")
       @search_mongo = Sunspot.search(@models) do
