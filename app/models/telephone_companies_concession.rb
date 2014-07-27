@@ -8,7 +8,7 @@ class TelephoneCompaniesConcession
   field :code3, type: String
   field :created_at, type: Date
   field :name, type: String
-  field :registered_at, type: String
+  field :registered_at, type: Date
   field :updated_at, type: Date
   
   searchable do

@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  #devise_for :views
-  #devise_for :users
   get 'main/index'
 
   #get 'main/search_result' , as: :result
