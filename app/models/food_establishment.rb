@@ -19,9 +19,6 @@ class FoodEstablishment
   searchable do
     string :name
     text :description
-    integer :food_establishment_area_id
-    integer :food_establishment_type_id
-    integer :food_establishment_health_community_id
   end
 
 end
