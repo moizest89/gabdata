@@ -10,4 +10,10 @@ class Medicine
   field :slug, type: String
   field :unit, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :name
+    string :price
+  end
+  
 end

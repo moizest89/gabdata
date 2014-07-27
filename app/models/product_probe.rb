@@ -11,4 +11,11 @@ class ProductProbe
   field :product_presentation_id, type: String
   field :shopping_establishment_id, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :offer_price
+    string :price
+    string :probe_date
+  end
+
 end

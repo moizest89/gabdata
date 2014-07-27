@@ -8,4 +8,11 @@ class WomanCityService
   field :phone, type: String
   field :updated_at, type: Date
   field :woman_city_id, type: String
+  
+  searchable do
+    string :name
+    string :phone
+    string :area
+  end
+
 end

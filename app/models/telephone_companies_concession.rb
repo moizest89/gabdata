@@ -9,4 +9,12 @@ class TelephoneCompaniesConcession
   field :name, type: String
   field :registered_at, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :name
+    string :code1
+    string :code2
+    string :code3
+  end
+
 end

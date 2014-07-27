@@ -13,4 +13,13 @@ class University
   field :reputable, type: String
   field :slug, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :name
+    string :address
+    string :kind
+    string :phone
+    string :rector
+  end
+
 end

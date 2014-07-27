@@ -9,4 +9,11 @@ class RadialConcession
   field :kind, type: String
   field :name, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :acronym
+    string :kind
+    string :name
+  end
+  
 end

@@ -13,4 +13,14 @@ class RadialFrequency
   field :power, type: String
   field :resolution_number, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :resolution_number
+    string :power
+    string :name
+    string :acronym
+    string :concession_start_date
+    string :coverage
+  end
+  
 end

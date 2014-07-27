@@ -8,4 +8,11 @@ class SolventCompany
 	field :period, type: String
 	field :created_at, type: Date
 	field :updated_at, type: Date
+  
+  searchable do
+    string :code
+    string :name
+    string :sector
+  end
+
 end

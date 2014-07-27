@@ -11,4 +11,10 @@ class Road
   field :slug, type: String
   field :start, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :name
+    string :number
+    string :responsible
+  end
 end

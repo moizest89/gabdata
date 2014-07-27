@@ -9,4 +9,12 @@ class SportsFederationTransfer
   field :name, type: String
   field :slug, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :approved_amount
+    string :name
+    string :executed_amount
+    string :extra_amount
+  end
+  
 end

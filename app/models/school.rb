@@ -11,4 +11,11 @@ class School
   field :quotas_number, type: String
   field :slug, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :name
+    string :number
+    string :responsible
+  end
+  
 end

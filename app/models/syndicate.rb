@@ -11,4 +11,11 @@ class Syndicate
   field :total_men, type: String
   field :total_women, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :name
+    string :acronym
+    string :kind
+  end
+
 end

@@ -8,4 +8,9 @@ class LineOfWork
   field :digit, type: String
   field :name, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :name
+  end
+
 end

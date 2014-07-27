@@ -11,4 +11,11 @@ class SchoolInfo
   field :turn, type: String
   field :updated_at, type: Date
   field :year, type: String
+  
+  searchable do
+    string :enrollment
+    string :quota
+    string :year
+  end
+
 end

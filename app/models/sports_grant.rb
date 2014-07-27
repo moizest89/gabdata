@@ -9,4 +9,12 @@ class SportsGrant
   field :total_men, type: String
   field :total_women, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :amount
+    string :name
+    string :total_men
+    string :total_women
+  end
+  
 end

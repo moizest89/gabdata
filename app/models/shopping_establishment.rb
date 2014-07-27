@@ -11,4 +11,14 @@ class ShoppingEstablishment
   field :name, type: String
   field :phone, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :address
+    string :code
+    string :latitude
+    string :longitude
+    string :name
+    string :phone
+  end
+  
 end

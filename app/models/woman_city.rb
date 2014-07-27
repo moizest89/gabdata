@@ -11,4 +11,13 @@ class WomanCity
   field :other_services_providers, type: String
   field :schedule, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :name
+    string :address
+    string :contact_email
+    string :contact_person
+    string :contact_phone
+  end
+  
 end

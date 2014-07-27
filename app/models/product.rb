@@ -8,4 +8,12 @@ class Product
   field :product_category_id, type: String
   field :slug, type: String
   field :updated_at, type: Date
+  
+  searchable do
+    string :amount
+    string :attachment_file_name
+    string :compliance_deadlines
+    string :name
+  end
+  
 end
