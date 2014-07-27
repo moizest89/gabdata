@@ -14,8 +14,9 @@ class RiskPreventionConsultant
   
   searchable do
     string :name
-    string :resources_amount
-    string :attachment_file_name
+    string :kind
+    string :email
+    string :code
   end
   
 end

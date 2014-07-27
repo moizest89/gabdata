@@ -14,7 +14,7 @@ class ShoppingEstablishment
   field :updated_at, type: Date
   
   searchable do
-    string :address
+    text :address
     string :code
     string :latitude
     string :longitude
