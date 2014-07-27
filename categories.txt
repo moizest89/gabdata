@@ -1,6 +1,9 @@
 Educacion
 	AcademicGrade
 	Carreer
+	School
+	SchoolInfo
+	University
 
 Economia y Finanzas
 	Accountant
@@ -15,31 +18,33 @@ Economia y Finanzas
 	CooperativeFeeType
 	Finance
 	FinanceType
+	SolventCompany
+	ShoppingEstablishment
 
 Salud
 	Doctor
 	DoctorEspeciality
+	Medicine
+	MedicineCategory
+	HealthEstablishment
 
-Alimentacion
+Insumos
 	FoodEstablishment
-	FoodEstablishmentArea
-	FoodEstablishmentHealthCommunity
 	FoodEstablishmentType
+	Product
+	ProductBrand
+	ProductCategory
+	ProductPresentation
+	ProductProbe
 
 Consumo de Electricidad
 	ElectricityChargeType
 	ElectricityCompany
 	ElectricityDemandLevel
-	ElectricityPrice
 	ElectricityRateType
 
-Fode
+Organizaciones
 	FodesCitiesTransfer
-	FodesCitiesTransferInfo
-
-Otros
-	Category
-	City
 	CivilOrganization
 	CivilOrganizationType
 	DelationInfo
@@ -47,36 +52,29 @@ Otros
 	Delegation
 	DelegationInfo
 	DisabledAssociation
-	ExecutingWork
-	FovialCompany
-	HealthEstablishment
-	HydroDepartment
-	HydroEstablishment
-	HidroMunicipality
-	HydroPrice
-	HydroReference
-	HydroRoute
-	HydroZone
-	InformationOfficer
-	InformationStandard
-	InformationStandardCategory
-	InformationStandardFrame
-	InformationStandardInfo
-	Institution
-	InstitutionConsultant
-	InstitutionEvent
-	InstitutionEventParticipant
-	InstitutionInformationStandardsSetting
-	InstitutionOfficial
-	InstitutionOrganizationalStructure
-	InstitutionRemuneration
-	InstitutionService
-	InstitutionServiceCategory
-	InstitutionServiceStep
-	InstitutionTravel
-	InstitutionType
+	Syndicate
+	SyndicateCategory
+
+Radio
+	RadialConcession
+	RadialFrequency
+
+Profesiones
 	Lawyer
 	LineOfWork
-	
+	Occupation
+	ExecutingWork
+
+Direcciones
+	Road
+	Refuge
+
+Otros
+	Category
+	City
+	State
+	Nationality
+	Procurement
+
 
 

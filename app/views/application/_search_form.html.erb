@@ -1,9 +1,8 @@
 <div id="search_form_item">
-
-	<form>
-		<input id="text" type="text"></input>
-		<input class="search_action" type="submit" value=""></input>
-		<%=select_tag :keyword,options_for_select(@keywords_select) %>
-	</form>
-
+	<%= form_for :strato, :method => :get do |f| %>
+	  <%= f.text_field :phrase, :value => @search_value, :id => "text" %>
+	  <%= label_tag :keyword, "Seleccione Categoria"%>
+	  <%= select_tag :keyword, options_for_select(@keywords_select) %>
+	  <%= f.submit "" , :class => "search_action" %>
+	<% end %>
 </div>
