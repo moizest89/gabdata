@@ -1,13 +1,14 @@
 <div id="result_items">
-
-
 	<div class="grid_6">
-	Transparencia:
-	
+		<h2 class="label">Transparencia:</h2>
+			<%=@mongo_results%>
 	</div>
 	<div class="grid_6 omega">
+		
 	Web
 	<%= render :partial => "result" , :collection => @results %>
+		<h2 class="label">Web:</h2>
+		<%= render :partial => "result" , :collection => @results %>
 	</div>
 	<div class="clear"></div>
 </div>
