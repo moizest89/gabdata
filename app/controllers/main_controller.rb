@@ -29,7 +29,7 @@ class MainController < ApplicationController
 
       logger.debug "SEARCH: #{@search_value}"
 
-      @url = "http://107.170.49.159:8983/solr/collection1/select?q=#{search_data}&wt=json&indent=true&defType=edismax&stopwords=true&lowercaseOperators=true"
+      @url = "http://107.170.49.159:8983/solr/collection1/select?q=#{search_data}&wt=json&indent=true&defType=edismax&stopwords=true&lowercaseOperators=true&row=40"
       url_parsed = URI.parse(@url)
       @response = Net::HTTP.get_response(url_parsed)
       @parsed_response = JSON.parse(@response.body)
@@ -67,7 +67,7 @@ class MainController < ApplicationController
 
   		logger.debug "SEARCH: #{@search_value}"
 
-		  @url = "http://107.170.49.159:8983/solr/collection1/select?q=#{search_data}&wt=json&indent=true&defType=edismax&stopwords=true&lowercaseOperators=true"
+		  @url = "http://107.170.49.159:8983/solr/collection1/select?q=#{search_data}&wt=json&indent=true&defType=edismax&stopwords=true&lowercaseOperators=true&row=40"
 		  url_parsed = URI.parse(@url)
 		  @response = Net::HTTP.get_response(url_parsed)
 		  @parsed_response = JSON.parse(@response.body)
