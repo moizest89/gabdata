@@ -1,0 +1,265 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//Layout itemns
+@import "mixin.css.scss";
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-family: Arial, Helvetica,sans-serif; 
+	-webkit-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+::-webkit-scrollbar {
+    width: 8px;
+	height: 8px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background: rgba(188,188,188,0.8); 
+    //@include rounded(6px);
+}
+
+.clear{
+	clear: both;
+}
+
+input[type="text"].error,
+input[type="password"].error,
+input[type="email"].error,
+textarea.error{
+	@include animation;
+	border-top:1px solid #fc4646 !important;
+	border-bottom:1px solid #fc4646 !important;
+	border-left:1px solid #fc4646 !important;
+	border-right:1px solid #fc4646 !important;
+	//@include boxShadow(0px 1px 2px, #7C7C7C inset);
+	webkit-box-shadow: 0px 1px 2px #7c7c7c inset, 0px 0px 4px #fc4646;
+	-moz-box-shadow: 0px 1px 2px #7c7c7c inset, 0px 0px 4px #fc4646;
+	box-shadow: 0px 1px 2px inset, 0px 0px 4px #fc4646;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea{
+	@include animation;
+	border-top:1px solid #ACACAC;
+	border-bottom:1px solid #ACACAC;
+	border-left:1px solid #C3C3C3;
+	border-right:1px solid #C3C3C3;
+	@include boxShadow(0px 1px 2px, #ADADAD inset);
+	text-indent:5px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus{
+	outline:none;
+	border: 1px solid #2D7EDB ;
+	//@include boxShadow(0 0 1px, #09F !important);
+	//@include boxShadow(0px 1px 2px, #09F inset);
+	-webkit-box-shadow: 0 0 1px #0099ff !important,0 0 1px, #09F inset !important;
+	-moz-box-shadow: 0 0 1px #0099ff !important,0 0 1px, #09F inset !important;
+	box-shadow: 0 0 1px #0099ff !important,0 0 1px, #09F inset !important;
+}
+//Search View
+
+div#search_container{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	div#header_search{
+		width: 100%;
+		background-image: image-url("blue_transparent.png");
+		background-repeat:repeat;
+		padding: 10px 0;
+		div.user_values{
+			a.user_value{
+				background: #FFFFFF;
+				color: #444444;
+				position: relative;
+				display: block;
+				float: right;
+				padding: 10px;
+				text-decoration: none;
+			}
+			a.logout{
+				display: block;	
+				float: right;
+			}
+		}
+	}
+	div#footer_page{
+		width: 100%;
+		background-image: image-url("blue_transparent.png");
+		background-repeat:repeat;
+		padding: 0 0 15 px 0;
+		margin-top: 60px;
+		span.power_by{
+			display: block;
+			color: #FFFFFF;
+			font-size: 14px;
+			width: 100%;
+			font-weight: bold;
+			text-align: center;
+			a{
+				color: #FFFFFF;
+				font-size: 14px;
+				font-weight: bold;
+				text-decoration: none;
+				position: relative;
+				img{
+					width: 30px;
+					margin-top: 10px;
+					position: relative;
+					top: 10px;
+				}
+			}
+			a:hover{
+				text-decoration: underline;
+			}
+		}	
+	}
+	div.image_view{
+		background-image: image-url("background2.jpg");
+		background-size: cover;
+		background-repeat:no-repeat;
+		background-position:center center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index:0;
+		position: fixed;
+		width: 150%;
+		height: 150%;
+		left: -50%;
+	}
+	div.search_view{
+		z-index:0;
+		position: relative;
+		
+		div#search_form{
+			background: #29AAE3;
+			margin-top: 200px;
+			@include rounded(5px);
+			@include boxShadow();
+			div.container{
+				padding: 20px 0;
+			}
+			img.logo{
+				margin: 0 auto;
+				text-align: center;
+				display: block;
+			}
+			span.use_text{
+				font-size: 14px;
+				color:#FFFFFF;
+				font-weight: bold;
+				padding: 30px 0 20px 0;
+				display: block;
+				@include textShadow(1px 1px 1px, #666666);
+			}
+			form{
+				width: 100%;
+				position: relative;
+				input[type="text"]{
+					width: 100%;
+					padding: 10px 0;
+					font-size: 16px;
+					@include rounded(4px);
+					text-indent: 10px;
+					@include boxShadow(0px 0px 0px);
+				}
+				input[type="submit"]{
+					background-image: image-url("search_symbol.png");
+					background-color:#dddddd;
+					background-repeat:no-repeat;
+					background-position:center center;
+					border:none;
+					padding:12.7px 25px;
+					cursor:pointer;
+					position:absolute;
+					top:1px;
+					right:-3px;
+					outline:none;
+					border-left: 1px solid #ACACAC;
+					@include rounded(0 3px 3px 0);
+					@include animation();
+				}
+				input[type="text"]:focus ~ input[type="submit"]{
+					border-left: 1px solid #2D7EDB;
+				}
+			}
+		}//
+		div#frequently_questions{
+			background: #29AAE3;
+			margin-top: 70px;
+			@include rounded(5px);
+			@include boxShadow();
+			div.container{
+				padding: 20px 0;
+			}
+			h1{
+				font-size: 20px;
+				color: #FFFFFF;
+				@include textShadow(1px 1px 1px, #666666);
+				margin-bottom: 10px;
+			}
+			ul{
+				max-height: 140px;
+				overflow-y: scroll;
+				overflow-x: hidden;
+				li{
+					border: 1px solid #FFFFFF;
+					margin: 2px 0;
+					font-size: 14px;
+					list-style: none;
+					padding: 10px 3px;
+					background: #dddddd;
+					color: #000000;
+					/*@include textShadow(1px 1px 1px, #666666);*/
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
