@@ -26,7 +26,7 @@ class MainController < ApplicationController
 	  	end
 	  	@mongo_results = @search_mongo.results
   		logger.debug "SEARCH: #{@search_value}"
-  		begin
+  		#begin
 			  @url = "http://107.170.49.159:8983/solr/collection1/select?q=#{@search_value}&wt=json&indent=true&defType=edismax&stopwords=true&lowercaseOperators=true"
 			  url_parsed = URI.parse(@url)
 			  @response = Net::HTTP.get_response(url_parsed)
@@ -34,11 +34,11 @@ class MainController < ApplicationController
 			  #@total_results = @parsed_response["response"]["numFound"]
 			  @results = @parsed_response["response"]["docs"]
         render "search_result", :layout => "search_result"
-			rescue => error
+			#rescue => error
 				@error_message = "Your search didn't get any result"
 
         render :layout => "search"
-			end
+			#end
   	end
   end
 end
