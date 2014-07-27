@@ -11,7 +11,7 @@ class Doctor
   field :slug, type: String
   field :updated_at, type: Date
 
-  searcable do
+  searchable do
   	string :name
   	integer :doctor_especiality_id
   	integer :register_number

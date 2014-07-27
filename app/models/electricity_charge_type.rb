@@ -8,7 +8,7 @@ class ElectricityChargeType
   field :unit, type: String
   field :updated_at, type: Date
 
-  seachable do
+  searchable do
   	string :name
   end
 end

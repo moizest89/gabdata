@@ -8,7 +8,7 @@ class ElectricityCompany
   field :updated_at, type: Date
   
 
-  seachable do
+  searchable do
   	string :name
   end
 end
