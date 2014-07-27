@@ -58,6 +58,12 @@ div#search_conatainer{
 		@include boxShadow(0px 0px 4px, #CCCCCC);
 		margin-bottom: 10px;
 		@include rounded(0 0 4px 4px);
+		h2.label{
+			color: #444444;
+			border-bottom:1px solid #444444;
+			margin-bottom: 10px;
+			padding-bottom: 5px;
+		}
 		div.result{
 			a{
 				font-size: 16px;
@@ -65,12 +71,23 @@ div#search_conatainer{
 				text-decoration: none;
 				font-weight: bold;
 			}
+			a:hover{
+				text-decoration: underline;
+			}
 			p{
 				font-size: 13px;
 				font-weight: 300;
 				color: #444444;
 				padding: 5px 0;
 			}
-		}
+		}/* div.result*/
+		div.result_2{
+			p{
+				font-size: 13px;
+				font-weight: 300;
+				color: #444444;
+				padding: 5px 0;
+			}
+		}/**/
 	}
 }
