@@ -1,23 +1,21 @@
-require "net/http"
-require "uri"
 class Refuge
   include Mongoid::Document
 
   field :_id, type: String, default: ->{ name.to_s.parameterize }
-  def self.define_mongo_fields( fields = [])
-  	fields.each do |field|
-  		self.field field.to_sym
-		end
-  end
-
-  def self.pull_data_from_open_gob_api(page = 1)
-      route = self.to_s.underscore.pluralize
-      url_string = "http://api.gobiernoabierto.gob.sv/#{route}?page=#{page}"
-      url = URI.parse(url_string)
-      req = Net::HTTP::Get.new(url.path)
-      req['Authorization'] = 'Token token="a1d461bec350c9a3ff62b6f684f10d5e"'
-      http = Net::HTTP.new(url.host, url.port)
-      res = http.request(req)
-      data = JSON.parse res.body
-  end
+  field :address, type: String
+  field :city_id, type: String
+  field :contact_person, type: String
+  field :created_at, type: Date
+  field :families_capacity, type: String
+  field :has_bathroom, type: String
+  field :has_communication, type: String
+  field :has_electricity, type: String
+  field :has_toilet, type: String
+  field :has_water, type: String
+  field :kind, type: String
+  field :name, type: String
+  field :people_capacity, type: String
+  field :phone, type: String
+  field :slug, type: String
+  field :updated_at, type: Date
 end

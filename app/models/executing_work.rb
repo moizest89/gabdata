@@ -1,23 +1,28 @@
-require "net/http"
-require "uri"
 class ExecutingWork
   include Mongoid::Document
+  include Sunspot::Mongoid2
 
   field :_id, type: String, default: ->{ name.to_s.parameterize }
-  def self.define_mongo_fields( fields = [])
-  	fields.each do |field|
-  		self.field field.to_sym
-		end
-  end
+  field :beneficiaries_number, type: Integer
+  field :contract_content, type: String
+  field :created_at, type: Date
+  field :execution_time, type: String
+  field :founding_source, type: String
+  field :implementing_company, type: String
+  field :institution_id, type: String
+  field :location, type: String
+  field :name, type: String
+  field :supervising_company, type: String
+  field :total_cost, type: String
+  field :updated_at, type: Date
+  field :work_responsible, type: String
 
-  def self.pull_data_from_open_gob_api(page = 1)
-      route = self.to_s.underscore.pluralize
-      url_string = "http://api.gobiernoabierto.gob.sv/#{route}?page=#{page}"
-      url = URI.parse(url_string)
-      req = Net::HTTP::Get.new(url.path)
-      req['Authorization'] = 'Token token="a1d461bec350c9a3ff62b6f684f10d5e"'
-      http = Net::HTTP.new(url.host, url.port)
-      res = http.request(req)
-      data = JSON.parse res.body
+  searchable do
+    string :name
+    text :contract_content
+    text :implementing_company
+    text :founding_source
+    text :execution_time
+
   end
 end

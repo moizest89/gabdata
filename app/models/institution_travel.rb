@@ -1,23 +1,20 @@
-require "net/http"
-require "uri"
 class InstitutionTravel
   include Mongoid::Document
 
   field :_id, type: String, default: ->{ name.to_s.parameterize }
-  def self.define_mongo_fields( fields = [])
-  	fields.each do |field|
-  		self.field field.to_sym
-		end
-  end
-
-  def self.pull_data_from_open_gob_api(page = 1)
-      route = self.to_s.underscore.pluralize
-      url_string = "http://api.gobiernoabierto.gob.sv/#{route}?page=#{page}"
-      url = URI.parse(url_string)
-      req = Net::HTTP::Get.new(url.path)
-      req['Authorization'] = 'Token token="a1d461bec350c9a3ff62b6f684f10d5e"'
-      http = Net::HTTP.new(url.host, url.port)
-      res = http.request(req)
-      data = JSON.parse res.body
-  end
+  field :created_at, type: Date
+  field :destination, type: String
+  field :end_date, type: String
+  field :institution_id, type: String
+  field :institution_official_job, type: String
+  field :institution_official_name, type: String
+  field :lodgment_cost, type: String
+  field :name, type: String
+  field :objetive, type: String
+  field :others_cost, type: String
+  field :sponsor_contribution, type: String
+  field :start_date, type: String
+  field :travel_cost, type: String
+  field :updated_at, type: Date
+  field :viatical_cost, type: String
 end

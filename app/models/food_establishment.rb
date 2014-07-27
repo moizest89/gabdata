@@ -1,23 +1,27 @@
-require "net/http"
-require "uri"
 class FoodEstablishment
   include Mongoid::Document
+  include Sunspot::Mongoid2
 
   field :_id, type: String, default: ->{ name.to_s.parameterize }
-  def self.define_mongo_fields( fields = [])
-  	fields.each do |field|
-  		self.field field.to_sym
-		end
+  field :address, type: String
+  field :authorization_expire_at, type: Date
+  field :authorized_at, type: Date
+  field :city_id, type: Integer
+  field :created_at, type: Date
+  field :description, type: String
+  field :food_establishment_area_id, type: Integer
+  field :food_establishment_health_community_id, type: Integer
+  field :food_establishment_type_id, type: Integer
+  field :name, type: String
+  field :slug, type: String
+  field :updated_at, type: Date
+
+  searchable do
+    string :name
+    text :description
+    integer :food_establishment_area_id
+    integer :food_establishment_type_id
+    integer :food_establishment_health_community_id
   end
 
-  def self.pull_data_from_open_gob_api(page = 1)
-      route = self.to_s.underscore.pluralize
-      url_string = "http://api.gobiernoabierto.gob.sv/#{route}?page=#{page}"
-      url = URI.parse(url_string)
-      req = Net::HTTP::Get.new(url.path)
-      req['Authorization'] = 'Token token="a1d461bec350c9a3ff62b6f684f10d5e"'
-      http = Net::HTTP.new(url.host, url.port)
-      res = http.request(req)
-      data = JSON.parse res.body
-  end
 end
