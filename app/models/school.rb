@@ -15,8 +15,8 @@ class School
   
   searchable do
     string :name
-    string :number
-    string :responsible
+    string :kind
+    string :code
   end
   
 end

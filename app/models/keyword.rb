@@ -6,4 +6,8 @@ class Keyword
   def get_models_classes
   	self.models.split(",").map{|model| model.singularize.classify.constantize}
   end
+
+  def label_for_select
+  	self.keyword.humanize.titleize
+  end
 end

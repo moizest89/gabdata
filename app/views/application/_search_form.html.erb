@@ -2,7 +2,8 @@
 
 	<form>
 		<input id="text" type="text"></input>
-		<input class="search_action" type="submit" value=""></input>	
+		<input class="search_action" type="submit" value=""></input>
+		<%=select_tag :keyword,options_for_select(@keywords_select) %>
 	</form>
 
 </div>
