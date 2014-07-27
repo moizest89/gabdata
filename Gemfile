@@ -32,7 +32,7 @@ gem 'sunspot_rails'
 gem 'sunspot_mongoid2'
 
 group :development do
-  #gem 'sunspot_solr'
+  gem 'sunspot_solr'
   #gem 'devise'
   gem 'mysql2'
 end
