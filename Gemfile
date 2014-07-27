@@ -1,4 +1,4 @@
-ruby '2.1.2'
+#ruby '2.1.2'
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -34,7 +34,7 @@ gem 'sunspot_mongoid2'
 group :development do
   gem 'sunspot_solr'
   #gem 'devise'
-  #gem 'mysql2'
+  gem 'mysql2'
 end
 
 # Use ActiveModel has_secure_password
