@@ -15,8 +15,6 @@ class SchoolInfo
   
   searchable do
     string :enrollment
-    string :quota
-    string :year
   end
 
 end
