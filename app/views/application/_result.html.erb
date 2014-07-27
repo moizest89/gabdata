@@ -1,10 +1,9 @@
 <div class="result">
-	<%#= link_to result["title"], result["url"], :target => "_BLANK" %>
-	<%= link_to "Sala Negra | ElFaro.net", "#{}", :target => "_BLANK" %>
+	<%= link_to result["title"], result["url"], :target => "_BLANK" %>
+	<%#= link_to "Sala Negra | ElFaro.net", "#{}", :target => "_BLANK" %>
 
 	<p>
-		<%#= result["content"].truncate(400) %>
-		Sala Negra | ElFaro.net Regresar al inicio Una producción de ELFARO.NET Crónicas y reportajes Entrevistas Bitácora Multimedia Síguenos Cita a ciegas con los espectadores de la muerte Daniel Valencia Caravantes En El Salvador hemos convertido la escena del crimen en un evento social. A la cinta amarilla se acercan hombres, mujeres, niños... la comunidad. Mientras compran y comen pupusas ante un ...
+		<%= result["content"].truncate(400) %>
 	</p>
 </div>
 

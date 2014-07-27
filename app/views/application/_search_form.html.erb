@@ -1,8 +1,12 @@
 <div id="search_form_item">
 
-	<form>
+<!-- 	<form>
 		<input id="text" type="text"></input>
 		<input class="search_action" type="submit" value=""></input>	
-	</form>
+	</form> -->
 
+	<%= form_for :strato, :method => :get do |f| %>
+	  <%= f.text_field :phrase, :value => @search_value, :id => "text" %>
+	  <%= f.submit "" , :class => "search_action" %>
+	<% end %>
 </div>
