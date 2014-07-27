@@ -6,43 +6,49 @@ TABLES = {}
 DEPENDENT_RELATIONSHIPS = {}
 
 desc "Download the data from the API and converts it into No relational data"
-task :download_data => :environment do
+task :download_data do
 	puts "Retrieving Data from Open Government API...."
 	total = ROUTES.length
 	counter = 0.0
 	percent = 0.0
 	ROUTES.each do |route|
-		get_data_from_api(route)
+		get_data_from_api(route, percent)
 		counter +=1.0
 		percent = ((counter/total)*100.0).round(1)
-		print "\r\rCompleted #{percent}% downloading #{route.titleize} route                                              "
+		puts "Total Completed #{percent}%, #{route.titleize} completed"
 	end
 	puts ""
 	puts "Adding nested Relations"
 	ok = change_relational_fields_to_no_relational
 	puts ""
+	define_fields_for_mongoid_models
 	if ok
 		puts "Storing data into Mongo DB"
 		store_data_on_mongo
 	end
 end
 
-def get_data_from_api(route)
+def get_data_from_api(route, percent = 0.0)
 	begin
-		# Getting the data from the API	
-		url_string = "http://api.gobiernoabierto.gob.sv/#{route}"
-		url = URI.parse(url_string)
-		req = Net::HTTP::Get.new(url.path)
-		req['Authorization'] = 'Token token="a1d461bec350c9a3ff62b6f684f10d5e"'
-		http = Net::HTTP.new(url.host, url.port)
-		res = http.request(req)
-		data = JSON.parse res.body
-		# Parsing the data to a hash format
-		table = data.map{|record| [record["id"],record] }
-		# Storing data on hash collection
-		TABLES[route] = table.to_h
-		# Storing relationships on hash collection
-		DEPENDENT_RELATIONSHIPS[route] = data.first.keys.select{ |k| k =~/\w+_id/ and ROUTES.include?(k.gsub("_id","").pluralize) }.map{|relation| relation.gsub("_id","")} rescue []
+		# Getting the data from the API
+		page = 1
+		while true
+			klass = route.singularize.classify.constantize
+			data = klass.pull_data_from_open_gob_api(page)
+			count = data.length
+			puts "Total Completed #{percent}%,Route #{route.titleize}=> request done #{count} results"
+			break if count == 0
+			puts "Total Completed #{percent}%,Route #{route.titleize}=> Parsing the data to a hash"
+			table = data.map{|record| [record["id"],record] }
+			puts "Total Completed #{percent}%,Route #{route.titleize}=> Storing data on hash collection"
+			TABLES[route] = TABLES[route].nil? ? table.to_h : TABLES[route].merge(table.to_h)
+			
+			if page == 1
+				puts "Total Completed #{percent}%,Route #{route.titleize}=> Storing foreign keys on hash collection"
+				DEPENDENT_RELATIONSHIPS[route] = data.first.keys.select{ |k| k =~/\w+_id/ and ROUTES.include?(k.gsub("_id","").pluralize) }.map{|relation| relation.gsub("_id","")} rescue []
+			end
+			page +=1
+		end
 	rescue Exception => e
 		puts "#{route} failed"
 		puts e.message
@@ -77,19 +83,31 @@ def change_relational_fields_to_no_relational
 	return true
 end
 
+def define_fields_for_mongoid_models
+	total = TABLES.length
+	counter = 0.0
+	percent = 0.0
+	TABLES.each_pair.each do |name, records|
+		klass = name.classify.constantize
+		fields = records.first.last.keys.select{|k| k != "id" }
+		klass.define_mongo_fields(fields)
+		counter +=1.0
+		percent = ((counter/total)*100.0).round(1)
+		print "\r\r#{percent}% completed processing Table #{name.titleize}                              "
+	end
+end
+
 def store_data_on_mongo
-	mongo_client = MongoClient.new("localhost", 27017)
-	db = mongo_client.db("open_gob")
 	total = TABLES.length
 	counter = 0.0
 	percent = 0.0
 	TABLES.each_pair do |name, records|
 		begin
-			coll = db.collection(name)
 			records.each do |record|
 				record_value = record.last
 				record_value.delete("id")
-				coll.insert(record_value)
+				klass = name.classify.constantize
+				klass.create!(record_value)
 			end
 			counter +=1.0
 			percent = ((counter/total)*100.0).round(1)
