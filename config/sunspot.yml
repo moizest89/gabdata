@@ -12,6 +12,7 @@ development:
     hostname: 107.170.49.159
     port: 8983
     log_level: INFO
+    path: /solr
     solr_home: solr
   # solr:
   #   hostname: localhost
